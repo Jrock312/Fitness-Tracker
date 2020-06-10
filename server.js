@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const MONGODB_URI = process.env.MONGODB_URI || 
 "mongodb://user1:Password1@ds031617.mlab.com:31617/heroku_f1b5gwht";
 const PORT = 3030;
+const dotenv = require("dotenv");
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
+require ("dotenv").config()
 
 mongoose.connect(MONGODB_URI);
 
